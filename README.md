@@ -1,2 +1,1 @@
-# tictactoe-python-simple
-My first project on github about python
+all my python projects will be posted here.
