@@ -1,6 +1,7 @@
 # LIVESTREAM MAKING TIC TAC TOE GAME // PHOENIZ
 # GIVE ME A LIKE AND SUBSCRIBE SO THAT I CAN KEEP DOING LIVESTREAM FOR YOU GUYS
 from random import randrange
+from time import sleep
 
 
 a, b, c, d, e, f, g, h, i = "_", "_", "_", "_", "_", "_", "_", "_", "_"
@@ -11,8 +12,10 @@ space = 0
 turn = 1
 bot_on = False
 gamemode = 0
+botloop = False
 
 while True:
+    sleep(0.5)
     turn = turn + 1
     if bot_on == False and gamemode == 0:
         gamemode = int(input("Please choose gamemode (1)vsBot, (2)PvP: "))
@@ -36,39 +39,52 @@ while True:
             space = space + 1
 
             if botmove == 1 and a == "_":
+                botloop = False
                 print("X move:", botmove)
                 a = "x"
             elif botmove == 2 and b == "_":
+                botloop = False
                 print("X move:", botmove)
                 b = "x"
             elif botmove == 3 and c == "_":
+                botloop = False
                 print("X move:", botmove)
                 c = "x"
             elif botmove == 4 and d == "_":
+                botloop = False
                 print("X move:", botmove)
                 d = "x"
             elif botmove == 5 and e == "_":
+                botloop = False
                 print("X move:", botmove)
                 e = "x"
             elif botmove == 6 and f == "_":
+                botloop = False
                 print("X move:", botmove)
                 f = "x"
             elif botmove == 7 and g == "_":
+                botloop = False
                 print("X move:", botmove)
                 g = "x"
             elif botmove == 8 and h == "_":
+                botloop = False
                 print("X move:", botmove)
                 h = "x"
             elif botmove == 9 and i == "_":
+                botloop = False
                 print("X move:", botmove)
                 i = "x"
             else:
                 space = space - 1
                 turn = turn - 1
+                botloop = True
 
-            print(a, b, c)  # Print table
-            print(d, e, f)
-            print(g, h, i)
+            if botloop == False:
+                print(a, b, c)
+                print(d, e, f)
+                print(g, h, i)
+            elif botloop == True:
+                continue
 
             if a == "x" and b == "x" and c == "x":  # con1
                 print("You lost")
@@ -82,6 +98,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -98,6 +115,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -115,6 +133,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -132,6 +151,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -149,6 +169,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -166,6 +187,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -183,6 +205,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -200,6 +223,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -248,6 +272,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -264,6 +289,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -281,6 +307,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -298,6 +325,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -315,6 +343,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -332,6 +361,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -349,6 +379,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
@@ -366,6 +397,7 @@ while True:
                     turn = 1
                     bot_on = False
                     gamemode = 0
+                    botloop = False
                     continue
                 elif temp == "n":
                     print("Thanks for playing.")
