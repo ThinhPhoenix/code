@@ -13,7 +13,10 @@ gamemode = 0
 botloop = False
 
 while True:
-    sleep(0.5)
+    if botloop == False:
+        sleep(0.5)
+    elif botloop == True:
+        pass
     turn = turn + 1
     if bot_on == False and gamemode == 0:
         gamemode = int(input("Please choose gamemode (1)vsBot, (2)PvP: "))
