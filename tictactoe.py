@@ -3,9 +3,9 @@ from time import sleep
 
 
 a, b, c, d, e, f, g, h, i = "_", "_", "_", "_", "_", "_", "_", "_", "_"
-print(a, b, c)  # Print table
-print(d, e, f)
-print(g, h, i)
+print(1, 2, 3)  # Print table
+print(4, 5, 6)
+print(7, 8, 9)
 space = 0
 turn = 1
 bot_on = False
