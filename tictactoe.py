@@ -3,6 +3,7 @@ from time import sleep
 
 
 a, b, c, d, e, f, g, h, i = "_", "_", "_", "_", "_", "_", "_", "_", "_"
+print("Press any number to start")
 print(1, 2, 3)  # Print table
 print(4, 5, 6)
 print(7, 8, 9)
