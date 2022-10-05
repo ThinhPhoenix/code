@@ -1,1 +1,1 @@
-all my python projects will be posted here.
+all my projects will be posted here.
