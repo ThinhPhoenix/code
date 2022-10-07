@@ -1,15 +1,9 @@
 from random import randrange
 
 gametable = {
-    1: '_',
-    2: '_',
-    3: '_',
-    4: '_',
-    5: '_',
-    6: '_',
-    7: '_',
-    8: '_',
-    9: '_'
+    1: '_', 2: '_', 3: '_',
+    4: '_', 5: '_', 6: '_',
+    7: '_', 8: '_', 9: '_'
 }
 turn = 1
 gamemode = None
@@ -69,15 +63,9 @@ def tieptuc(temp):
         case 'y' | 'Y':
             print("You chose to continue.")
             gametable = {
-                1: '_',
-                2: '_',
-                3: '_',
-                4: '_',
-                5: '_',
-                6: '_',
-                7: '_',
-                8: '_',
-                9: '_'
+                1: '_', 2: '_', 3: '_',
+                4: '_', 5: '_', 6: '_',
+                7: '_', 8: '_', 9: '_'
             }
             turn = 1
             gamemode = None
@@ -99,15 +87,9 @@ while game_continue:
               (gametable[4], gametable[5], gametable[6]), '\n',
               (gametable[7], gametable[8], gametable[9]), sep='')
         gametable = {
-            1: '_',
-            2: '_',
-            3: '_',
-            4: '_',
-            5: '_',
-            6: '_',
-            7: '_',
-            8: '_',
-            9: '_'
+            1: '_', 2: '_', 3: '_',
+            4: '_', 5: '_', 6: '_',
+            7: '_', 8: '_', 9: '_'
         }
     win_cases()
     match gamemode:
