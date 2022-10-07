@@ -42,23 +42,18 @@ def win_cases():
         who = 'X'
     if gametable[1] == gametable[2] == gametable[3] != '_':
         print(f"{who} win!")
-        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[4] == gametable[5] == gametable[6] != '_':
         print(f"{who} win!")
-        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[7] == gametable[8] == gametable[9] != '_':
         print(f"{who} win!")
-        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[1] == gametable[5] == gametable[9] != '_':
         print(f"{who} win!")
-        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[7] == gametable[5] == gametable[3] != '_':
         print(f"{who} win!")
-        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
 
 
