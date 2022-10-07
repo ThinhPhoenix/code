@@ -140,4 +140,5 @@ while game_continue:
         case _:
             print("Error, type 'bot' or 'pvp' only.")
             turn -= 1
+            gamemode = None
             continue
