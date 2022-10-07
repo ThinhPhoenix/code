@@ -35,25 +35,30 @@ def bot_move():
 
 
 def win_cases():
-    global gametable, top, middle, bottom, turn
+    global gametable, turn
     if turn % 2 == 0:
-        who = 'X'
-    else:
         who = 'O'
+    else:
+        who = 'X'
     if gametable[1] == gametable[2] == gametable[3] != '_':
         print(f"{who} win!")
+        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[4] == gametable[5] == gametable[6] != '_':
         print(f"{who} win!")
+        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[7] == gametable[8] == gametable[9] != '_':
         print(f"{who} win!")
+        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[1] == gametable[5] == gametable[9] != '_':
         print(f"{who} win!")
+        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
     elif gametable[7] == gametable[5] == gametable[3] != '_':
         print(f"{who} win!")
+        turn = 1
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
 
 
@@ -83,22 +88,23 @@ while game_continue:
     if space == 9:
         print("Draw!")
         space = 0
-        print((gametable[1], gametable[2], gametable[3]), '\n',
-              (gametable[4], gametable[5], gametable[6]), '\n',
-              (gametable[7], gametable[8], gametable[9]), sep='')
         gametable = {
             1: '_', 2: '_', 3: '_',
             4: '_', 5: '_', 6: '_',
             7: '_', 8: '_', 9: '_'
         }
+        print((gametable[1], gametable[2], gametable[3]), '\n',
+              (gametable[4], gametable[5], gametable[6]), '\n',
+              (gametable[7], gametable[8], gametable[9]), sep='')
     win_cases()
     match gamemode:
         case None:
             gamemode = str(input("Enter gamemode [bot], [pvp]: "))
-            print((gametable[1], gametable[2], gametable[3]), '\n',
-                  (gametable[4], gametable[5], gametable[6]), '\n',
-                  (gametable[7], gametable[8], gametable[9]), sep='')
             turn -= 1
+            if gamemode == 'bot' or gamemode == 'pvp':
+                print((gametable[1], gametable[2], gametable[3]), '\n',
+                      (gametable[4], gametable[5], gametable[6]), '\n',
+                      (gametable[7], gametable[8], gametable[9]), sep='')
         case 'bot':
             if turn % 2 == 0:
                 moving = int(input("Your move: "))
