@@ -35,11 +35,17 @@ def bot_move():
 
 
 def win_cases():
-    global gametable, turn
+    global gametable, turn, gamemode
     if turn % 2 == 0:
-        who = 'O'
+        if gamemode == 'bot':
+            who = 'Bot'
+        else:
+            who = 'O'
     else:
-        who = 'X'
+        if gamemode == 'bot':
+            who = 'You'
+        else:
+            who = 'X'
     if gametable[1] == gametable[2] == gametable[3] != '_':
         print(f"{who} win!")
         tieptuc(str(input("Do you wanna continue?(y/n) ")))
@@ -80,6 +86,7 @@ def tieptuc(temp):
 
 while game_continue:
     turn += 1
+    win_cases()
     if space == 9:
         print("Draw!")
         space = 0
@@ -91,7 +98,6 @@ while game_continue:
         print((gametable[1], gametable[2], gametable[3]), '\n',
               (gametable[4], gametable[5], gametable[6]), '\n',
               (gametable[7], gametable[8], gametable[9]), sep='')
-    win_cases()
     match gamemode:
         case None:
             gamemode = str(input("Enter gamemode [bot], [pvp]: "))
@@ -142,4 +148,3 @@ while game_continue:
             print("Error, type 'bot' or 'pvp' only.")
             turn -= 1
             gamemode = None
-            continue
