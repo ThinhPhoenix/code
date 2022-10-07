@@ -92,7 +92,6 @@ def tieptuc(temp):
 
 while game_continue:
     turn += 1
-    print(space)
     if space == 9:
         print("Draw!")
         space = 0
