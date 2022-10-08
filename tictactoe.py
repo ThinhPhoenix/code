@@ -21,19 +21,6 @@ def update_table(temp):
     gametable.update({temp: who})
 
 
-def bot_move():
-    global bmove, gametable, space, turn
-    bmove = randrange(1, 10)
-    if gametable[bmove] == '_':
-        update_table(bmove)
-        print(f"Bot move: {bmove}")
-        print((gametable[1], gametable[2], gametable[3]), '\n',
-              (gametable[4], gametable[5], gametable[6]), '\n',
-              (gametable[7], gametable[8], gametable[9]), sep='')
-    else:
-        bot_move()
-
-
 def win_cases():
     global gametable, turn, gamemode
     if turn % 2 == 0:
