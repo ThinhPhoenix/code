@@ -20,8 +20,7 @@ std::string gametable[9] = {
     "_",
     "_",
     "_",
-    "_"
-};
+    "_"};
 
 void printtable()
 {
@@ -65,6 +64,7 @@ void tieptuc()
     case 'n':
     case 'N':
         std::cout << "Thanks for playing!\n";
+        gamemode = "stop";
         game_continue = false;
         break;
     default:
@@ -99,31 +99,31 @@ void win_cases()
             player = "X";
         }
     }
-    if (gametable[0] == gametable[1] and gametable[1] == gametable[2] and gametable[2] != "_")
+    if (gametable[0] == gametable[1] && gametable[1] == gametable[2] && gametable[2] != "_")
     {
         std::cout << player << " Win!" << std::endl;
         tieptuc();
     }
 
-    else if (gametable[3] == gametable[4] and gametable[4] == gametable[5] and gametable[5] != "_")
+    else if (gametable[3] == gametable[4] && gametable[4] == gametable[5] && gametable[5] != "_")
     {
         std::cout << player << " Win!" << std::endl;
         tieptuc();
     }
 
-    else if (gametable[6] == gametable[7] and gametable[7] == gametable[8] and gametable[8] != "_")
+    else if (gametable[6] == gametable[7] && gametable[7] == gametable[8] && gametable[8] != "_")
     {
         std::cout << player << " Win!" << std::endl;
         tieptuc();
     }
 
-    else if (gametable[0] == gametable[4] and gametable[4] == gametable[8] and gametable[8] != "_")
+    else if (gametable[0] == gametable[4] && gametable[4] == gametable[8] && gametable[8] != "_")
     {
         std::cout << player << " Win!" << std::endl;
         tieptuc();
     }
 
-    else if (gametable[6] == gametable[4] and gametable[4] == gametable[2] and gametable[2] != "_")
+    else if (gametable[6] == gametable[4] && gametable[4] == gametable[2] && gametable[2] != "_")
     {
         std::cout << player << " Win!" << std::endl;
         tieptuc();
@@ -140,7 +140,7 @@ int main()
             cout << "Draw!\n";
             for (int i = 0; i < 9; i++)
             {
-            gametable[i] = '_';
+                gametable[i] = '_';
             }
             turn = 1;
             space = 0;
@@ -177,7 +177,7 @@ int main()
                 {
                     std::cout << "Your place had been taken!\n";
                     turn--;
-                } 
+                }
             }
             else
             {
@@ -221,6 +221,7 @@ int main()
                 turn--;
             }
         }
+        else if (gamemode == "stop"){}
         else
         {
             cout << "Error, just type [bot] or [pvp] only.\n";
