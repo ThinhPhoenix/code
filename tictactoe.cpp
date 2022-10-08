@@ -11,7 +11,7 @@ int space = 0;
 int bmove = 0;
 std::string who;
 
-std::string gametable[10] = {
+std::string gametable[9] = {
     "_",
     "_",
     "_",
@@ -20,7 +20,7 @@ std::string gametable[10] = {
     "_",
     "_",
     "_",
-    "_",
+    "_"
 };
 
 void printtable()
