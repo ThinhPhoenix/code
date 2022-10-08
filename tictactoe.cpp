@@ -1,636 +1,231 @@
 #include <iostream>
 #include <string>
-#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 using namespace std;
 
-// variables
-char a = '_';
-char b = '_';
-char c = '_';
-char d = '_';
-char e = '_';
-char f = '_';
-char g = '_';
-char h = '_';
-char i = '_';
+std::string gamemode = "0";
+bool game_continue = true;
 int turn = 1;
-int mov = 0;
 int space = 0;
-bool quit_game = false;
+int bmove = 0;
+std::string who;
 
-// def printboard()
-void printboard()
+std::string gametable[10] = {
+    "_",
+    "_",
+    "_",
+    "_",
+    "_",
+    "_",
+    "_",
+    "_",
+    "_",
+};
+
+void printtable()
 {
-    std::cout << a << " " << b << " " << c << "\n"
-              << d << " " << e << " " << f << "\n"
-              << g << " " << h << " " << i << "\n";
+    std::cout << "( " << gametable[0] << ", " << gametable[1] << ", " << gametable[2] << ")\n"
+              << "( " << gametable[3] << ", " << gametable[4] << ", " << gametable[5] << ")\n"
+              << "( " << gametable[6] << ", " << gametable[7] << ", " << gametable[8] << ")\n";
 }
 
-// winner finding functions
-void win_case_x()
+void update_table(int temp)
 {
-    if (a == 'x' and b == 'x' and c == 'x')
+    if (turn % 2 == 0)
     {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        gametable[temp] = 'x';
     }
-    else if (d == 'x' and e == 'x' and f == 'x')
+    else
     {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (g == 'x' and h == 'x' and i == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (a == 'x' and d == 'x' and g == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (b == 'x' and e == 'x' and h == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (c == 'x' and f == 'x' and i == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (a == 'x' and e == 'x' and i == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (c == 'x' and e == 'x' and g == 'x')
-    {
-        char temp;
-        printf("X won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        gametable[temp] = 'o';
     }
 }
-void win_case_o()
+
+void tieptuc()
 {
-    if (a == 'o' and b == 'o' and c == 'o')
+    std::cout << "Do you wanna continue?(y/n) ";
+    char temp;
+    std::cin >> temp;
+    switch (temp)
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
+    case 'y':
+    case 'Y':
+        for (int i = 0; i < 9; i++)
         {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
+            gametable[i] = '_';
+        }
+        turn = 1;
+        space = 0;
+        bmove = 0;
+        gamemode = "0";
+
+        std::cout << "You chose to continue.\n";
+        break;
+    case 'n':
+    case 'N':
+        std::cout << "Thanks for playing!\n";
+        game_continue = false;
+        break;
+    default:
+        std::cout << "Error, just type 'y' or 'n' only!\n";
+        tieptuc();
+        break;
+    }
+}
+
+void win_cases()
+{
+    std::string player;
+    if (turn % 2 != 0)
+    {
+        if (gamemode == "bot")
+        {
+            player = "Bot";
         }
         else
         {
-            printf("Thanks for playing!\n");
-            quit_game = true;
+            player = "O";
         }
     }
-    else if (d == 'o' and e == 'o' and f == 'o')
+    else
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
+        if (gamemode == "bot")
         {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
+            player = "You";
         }
         else
         {
-            printf("Thanks for playing!\n");
-            quit_game = true;
+            player = "X";
         }
     }
-    else if (g == 'o' and h == 'o' and i == 'o')
+    if (gametable[0] == gametable[1] and gametable[1] == gametable[2] and gametable[2] != "_")
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        std::cout << player << " Win!" << std::endl;
+        tieptuc();
     }
-    else if (a == 'o' and d == 'o' and g == 'o')
+
+    else if (gametable[3] == gametable[4] and gametable[4] == gametable[5] and gametable[5] != "_")
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        std::cout << player << " Win!" << std::endl;
+        tieptuc();
     }
-    else if (b == 'o' and e == 'o' and h == 'o')
+
+    else if (gametable[6] == gametable[7] and gametable[7] == gametable[8] and gametable[8] != "_")
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        std::cout << player << " Win!" << std::endl;
+        tieptuc();
     }
-    else if (c == 'o' and f == 'o' and i == 'o')
+
+    else if (gametable[0] == gametable[4] and gametable[4] == gametable[8] and gametable[8] != "_")
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        std::cout << player << " Win!" << std::endl;
+        tieptuc();
     }
-    else if (a == 'o' and e == 'o' and i == 'o')
+
+    else if (gametable[6] == gametable[4] and gametable[4] == gametable[2] and gametable[2] != "_")
     {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
-    }
-    else if (c == 'o' and e == 'o' and g == 'o')
-    {
-        char temp;
-        printf("O won!\n");
-        printf("Do you wanna continue? ");
-        std::cin >> temp;
-        if (temp == 'y' or temp == 'Y')
-        {
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            turn = 1;
-            mov = 0;
-            space = 0;
-            printboard();
-        }
-        else
-        {
-            printf("Thanks for playing!\n");
-            quit_game = true;
-        }
+        std::cout << player << " Win!" << std::endl;
+        tieptuc();
     }
 }
 
 int main()
 {
-    // while loop
-    while (true)
+    while (game_continue)
     {
-
-        // print board & turn += 1 & stop game if there are winner
-        printboard();
-        win_case_x();
-        win_case_o();
-        turn++;
-
-        // quit game
-        if (quit_game == true)
-        {
-            break;
-        }
-
-        // full space
+        win_cases();
         if (space == 9)
         {
-            std::cout << "Draw! continue.\n";
+            cout << "Draw!\n";
+            for (int i = 0; i < 9; i++)
+            {
+            gametable[i] = '_';
+            }
+            turn = 1;
             space = 0;
-            a = '_';
-            b = '_';
-            c = '_';
-            d = '_';
-            e = '_';
-            f = '_';
-            g = '_';
-            h = '_';
-            i = '_';
-            printboard();
+            bmove = 0;
+            printtable();
         }
 
-        // x turn
-        if (turn % 2 == 0)
+        turn++;
+
+        if (gamemode == "0")
         {
-            std::cout << "X move: ";
-            std::cin >> mov;
-            if (mov == 1 and a == '_')
+            turn--;
+            std::cout << "Enter gamemode [bot], [pvp]: ";
+            std::cin >> gamemode;
+            if (gamemode == "bot" or gamemode == "pvp")
             {
-                a = 'x';
-                space++;
+                printtable();
             }
-            else if (mov == 2 and b == '_')
+        }
+        else if (gamemode == "bot")
+        {
+            if (turn % 2 == 0)
             {
-                b = 'x';
-                space++;
+                int moving;
+                std::cout << "Your move: ";
+                std::cin >> moving;
+                if (gametable[moving - 1] == "_")
+                {
+                    space++;
+                    update_table(moving - 1);
+                    printtable();
+                }
+                else
+                {
+                    std::cout << "Your place had been taken!\n";
+                    turn--;
+                } 
             }
-            else if (mov == 3 and c == '_')
+            else
             {
-                c = 'x';
-                space++;
+                srand(time(NULL));
+                bmove = rand() % 9;
+                if (gametable[bmove] == "_")
+                {
+                    space++;
+                    update_table(bmove);
+                    std::cout << "Bot move: " << bmove + 1 << "\n";
+                    printtable();
+                }
+                else
+                {
+                    turn--;
+                }
             }
-            else if (mov == 4 and d == '_')
+        }
+        else if (gamemode == "pvp")
+        {
+            if (turn % 2 == 0)
             {
-                d = 'x';
-                space++;
+                who = "X";
             }
-            else if (mov == 5 and e == '_')
+            else
             {
-                e = 'x';
-                space++;
+                who = "O";
             }
-            else if (mov == 6 and f == '_')
+            int moving;
+            std::cout << who << " move: ";
+            std::cin >> moving;
+            if (gametable[moving - 1] == "_")
             {
-                f = 'x';
                 space++;
-            }
-            else if (mov == 7 and g == '_')
-            {
-                g = 'x';
-                space++;
-            }
-            else if (mov == 8 and h == '_')
-            {
-                h = 'x';
-                space++;
-            }
-            else if (mov == 9 and i == '_')
-            {
-                i = 'x';
-                space++;
+                update_table(moving - 1);
+                printtable();
             }
             else
             {
                 std::cout << "Your place had been taken!\n";
-                space--;
                 turn--;
             }
         }
-
-        // o turn
         else
         {
-            std::cout << "O move: ";
-            std::cin >> mov;
-            if (mov == 1 and a == '_')
-            {
-                a = 'o';
-                space++;
-            }
-            else if (mov == 2 and b == '_')
-            {
-                b = 'o';
-                space++;
-            }
-            else if (mov == 3 and c == '_')
-            {
-                c = 'o';
-                space++;
-            }
-            else if (mov == 4 and d == '_')
-            {
-                d = 'o';
-                space++;
-            }
-            else if (mov == 5 and e == '_')
-            {
-                e = 'o';
-                space++;
-            }
-            else if (mov == 6 and f == '_')
-            {
-                f = 'o';
-                space++;
-            }
-            else if (mov == 7 and g == '_')
-            {
-                g = 'o';
-                space++;
-            }
-            else if (mov == 8 and h == '_')
-            {
-                h = 'o';
-                space++;
-            }
-            else if (mov == 9 and i == '_')
-            {
-                i = 'o';
-                space++;
-            }
-            else
-            {
-                std::cout << "Your place had been taken!\n";
-                space--;
-                turn--;
-            }
+            cout << "Error, just type [bot] or [pvp] only.\n";
+            turn--;
+            gamemode = "0";
         }
     }
     return 0;
